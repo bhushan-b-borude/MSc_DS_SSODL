@@ -12,6 +12,7 @@ beautifulsoup4==4.12.2
 bleach==6.0.0
 blinker==1.9.0
 cachetools==5.5.2
+catboost==1.2.8
 certifi==2023.5.7
 cffi==1.15.1
 charset-normalizer==3.4.1
@@ -31,6 +32,7 @@ fonttools==4.39.4
 fqdn==1.5.1
 gitdb==4.0.12
 GitPython==3.1.44
+graphviz==0.20.3
 h11==0.14.0
 idna==3.4
 ipykernel==6.23.0
@@ -71,6 +73,7 @@ pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==9.5.0
 platformdirs==3.5.1
+plotly==6.0.1
 prometheus-client==0.16.0
 prompt-toolkit==3.0.38
 protobuf==5.29.4

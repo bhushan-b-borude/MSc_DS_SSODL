@@ -120,7 +120,7 @@ st.sidebar.header("Predict for Single Entry")
 
 # Sidebar inputs for prediction
 invoice_type = st.sidebar.selectbox('Invoice Type', ['monthly', 'final'])
-invoice_amount = st.sidebar.number_input('Invoice Amount', min_value=0.0)ß
+invoice_amount = st.sidebar.number_input('Invoice Amount', min_value=0.0)
 invoice_month = st.sidebar.number_input('Invoice Month', min_value=1, max_value=12)
 due_day = st.sidebar.number_input('Due Day', min_value=1, max_value=31)
 deal_term = st.sidebar.number_input('Deal Term (months)', min_value=1)
