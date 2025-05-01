@@ -48,25 +48,7 @@ This app uses a machine learning model to predict the probability of payment del
 
 # # Path to sample file
 # sample_file_path = '/Users/bhushanborude/Desktop/Projects/Python/Python for Machine Learning & Data Science Masterclass/FINN/Test.csv'
-# # Path to sample file
-# sample_file_path = '/Users/bhushanborude/Desktop/Projects/Python/Python for Machine Learning & Data Science Masterclass/FINN/Test.csv'
 
-# # Read the file in binary mode
-# with open(sample_file_path, 'rb') as f:
-#     sample_bytes = f.read()
-##########################
-# Base directory of this script
-BASE_DIR = os.path.dirname(__file__)
-
-# Path to sample file (relative to this script)
-sample_file_path = os.path.join(BASE_DIR, "Test.csv")
-
-# Check existence and read the file in binary mode
-if not os.path.exists(sample_file_path):
-    st.error(f"Sample file not found at {sample_file_path}")
-    st.stop()
-
-with open(sample_file_path, "rb") as f:
 # # Read the file in binary mode
 # with open(sample_file_path, 'rb') as f:
 #     sample_bytes = f.read()
@@ -84,7 +66,6 @@ if not os.path.exists(sample_file_path):
 
 with open(sample_file_path, "rb") as f:
     sample_bytes = f.read()
-##########################
 
 # Sidebar download button
 st.sidebar.download_button(
@@ -105,10 +86,6 @@ if uploaded_file is not None:
     st.write("### Uploaded Data Preview", input_df.head())
 
     # Load trained model
-    # with open('/Users/bhushanborude/Desktop/Projects/Python/Python for Machine Learning & Data Science MasterclasS/FINN/cat_model.pkl', 'rb') as model_file:
-    #     cat_model = pickle.load(model_file)
-     model_path = os.path.join(BASE_DIR, "cat_model.pkl")
-     with open(model_path, 'rb') as model_file:
     # with open('/Users/bhushanborude/Desktop/Projects/Python/Python for Machine Learning & Data Science MasterclasS/FINN/cat_model.pkl', 'rb') as model_file:
     #     cat_model = pickle.load(model_file)
     model_path = os.path.join(BASE_DIR, "cat_model.pkl")
@@ -143,7 +120,7 @@ st.sidebar.header("Predict for Single Entry")
 
 # Sidebar inputs for prediction
 invoice_type = st.sidebar.selectbox('Invoice Type', ['monthly', 'final'])
-invoice_amount = st.sidebar.number_input('Invoice Amount', min_value=0.0)
+invoice_amount = st.sidebar.number_input('Invoice Amount', min_value=0.0)ß
 invoice_month = st.sidebar.number_input('Invoice Month', min_value=1, max_value=12)
 due_day = st.sidebar.number_input('Due Day', min_value=1, max_value=31)
 deal_term = st.sidebar.number_input('Deal Term (months)', min_value=1)
@@ -174,18 +151,12 @@ if st.sidebar.button('Predict Payment Delay'):
     #     cat_model = pickle.load(model_file)
     model_path = os.path.join(BASE_DIR, "cat_model.pkl")
     with open(model_path, 'rb') as model_file:
-    # with open('/Users/bhushanborude/Desktop/Projects/Python/Python for Machine Learning & Data Science MasterclasS/FINN/cat_model.pkl', 'rb') as model_file:
-    #     cat_model = pickle.load(model_file)
-    model_path = os.path.join(BASE_DIR, "cat_model.pkl")
-    with open(model_path, 'rb') as model_file:
         cat_model = pickle.load(model_file)
     # Predict based on the input
     delay_prob = cat_model.predict_proba(user_input)[:, 1]
     st.sidebar.markdown(f"Predicted Payment Delay Probability: {delay_prob[0]:.4f}")
 
 # Define a base path
-# base_path = '/Users/bhushanborude/Desktop/Projects/Python/Python for Machine Learning & Data Science MasterclasS/FINN'
-base_path = BASE_DIR
 # base_path = '/Users/bhushanborude/Desktop/Projects/Python/Python for Machine Learning & Data Science MasterclasS/FINN'
 base_path = BASE_DIR
 # Filenames
@@ -219,3 +190,5 @@ for row in rows:
             col.image(image, use_container_width=True, width=1200)
         else:
             col.error(f"Image not found: {os.path.basename(img_path)}")
+
+
